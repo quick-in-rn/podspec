@@ -6,20 +6,20 @@
 package = JSON.parse(File.read(File.expand_path('package.json', __dir__)))
 version = package['version']
 
-# source = { :git => ENV['INSTALL_YOGA_FROM_LOCATION'] || 'https://github.com/facebook/react-native.git' }
-# if version == '1000.0.0'
-#   # This is an unpublished version, use the latest commit hash of the react-native repo, which we’re presumably in.
-#   source[:commit] = `git rev-parse HEAD`.strip
-# else
-#   source[:tag] = "v#{version}"
-# end
+source = { :git => ENV['INSTALL_YOGA_FROM_LOCATION'] || 'https://github.com/facebook/react-native.git' }
+if version == '1000.0.0'
+  # This is an unpublished version, use the latest commit hash of the react-native repo, which we’re presumably in.
+  source[:commit] = `git rev-parse HEAD`.strip
+else
+  source[:tag] = "v#{version}"
+end
 
 Pod::Spec.new do |spec|
   spec.name = 'yoga'
   spec.version = "#{version}.React"
   spec.license =  { :type => 'MIT' }
-  spec.homepage = 'https://facebook.github.io/yoga/'
-  spec.documentation_url = 'https://facebook.github.io/yoga/docs/api/c/'
+  spec.homepage = 'https://yogalayout.com'
+  spec.documentation_url = 'https://yogalayout.com/docs/'
 
   spec.summary = 'Yoga is a cross-platform layout engine which implements Flexbox.'
   spec.description = 'Yoga is a cross-platform layout engine enabling maximum collaboration within your team by implementing an API many designers are familiar with, and opening it up to developers across different platforms.'
@@ -46,6 +46,6 @@ Pod::Spec.new do |spec|
   source_files = 'yoga/**/*.{cpp,h}'
   spec.source_files = source_files
 
-  header_files = 'yoga/{Yoga,YGEnums,YGMacros,YGValue}.h'
+  header_files = 'yoga/{Yoga,YGEnums,YGMacros,YGValue,YGStyle,CompactValue,YGFloatOptional,Yoga-internal,YGNode,YGConfig,YGLayout,YGMarker}.h'
   spec.public_header_files = header_files
 end
