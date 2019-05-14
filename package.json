@@ -1,0 +1,10 @@
+{
+  "name": "quick-in-react-native",
+  "version": "0.59.0",
+  "description": "A flow for integrating native apps with React-Native Framework. This repo provides podspec files.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:quick-in-rn/podspec.git"
+  }
+}
